@@ -1,0 +1,5 @@
+{
+  "name": "enable-realm",
+  "type": "groovy",
+  "content": "(container.lookup(org.sonatype.nexus.security.realm.RealmManager.class.getName())).enableRealm('NpmToken',true);(container.lookup(org.sonatype.nexus.security.realm.RealmManager.class.getName())).enableRealm('DockerToken',true);"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Docker-Edit",
+  "type": "groovy",
+  "content": "security.addRole('docker-edit', 'docker-edit', 'docker repository edit and delete privileges' , ['nx-repository-view-docker-docker-hosted-read','nx-repository-view-docker-docker-hosted-edit','nx-repository-view-docker-docker-hosted-add','nx-repository-view-docker-docker-hosted-browse'],[])"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "maven-Read",
+  "type": "groovy",
+  "content":"security.addRole('maven-read', 'maven-read', 'maven repository read and browse privileges',['nx-repository-view-maven2-maven-central-read','nx-repository-view-maven2-maven-central-browse'],[])"
+}
