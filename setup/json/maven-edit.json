@@ -1,0 +1,5 @@
+{
+  "name": "maven-Edit",
+  "type": "groovy",
+  "content": "security.addRole('maven-edit', 'maven-edit', 'maven repository edit and delete privileges',['nx-repository-view-maven2-maven-central-edit','nx-repository-view-maven2-maven-central-read','nx-repository-view-maven2-maven-central-add','nx-repository-view-maven2-maven-central-browse'],[])"
+}

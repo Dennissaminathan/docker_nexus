@@ -1,0 +1,5 @@
+{
+  "name": "npm-Edit",
+  "type": "groovy",
+  "content": "security.addRole('npm-edit', 'npm-edit', 'npm repository edit and delete privileges' , ['nx-repository-view-npm-npm-internal-edit','nx-repository-view-npm-npm-internal-read','nx-repository-view-npm-npm-internal-add','nx-repository-view-npm-npm-internal-browse'],[])"
+}

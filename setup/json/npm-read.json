@@ -1,0 +1,5 @@
+{
+  "name": "npm-Read",
+  "type": "groovy",
+  "content": "security.addRole('npm-read', 'npm-read', 'npm repository read and browse privileges' , ['nx-repository-view-npm-npm-internal-read','nx-repository-view-npm-npm-internal-browse'],[])"
+}

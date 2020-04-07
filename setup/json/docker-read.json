@@ -1,0 +1,5 @@
+{
+  "name": "Docker-Read",
+  "type": "groovy",
+  "content": "security.addRole('docker-read', 'docker-read', 'docker repository read and browse privileges' , ['nx-repository-view-docker-docker-hosted-read','nx-repository-view-docker-docker-hosted-browse'],[])"
+}

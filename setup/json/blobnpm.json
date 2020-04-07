@@ -1,0 +1,5 @@
+{
+  "name": "blobstore-npm",
+  "type": "groovy",
+  "content": "blobStore.createFileBlobStore('npm-store','/home/appuser/app/sonatype-work/nexus3/blobs/npm-store')"
+}

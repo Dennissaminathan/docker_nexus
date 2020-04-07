@@ -1,0 +1,5 @@
+{
+  "name": "blobstore-Docker",
+  "type": "groovy",
+  "content": "blobStore.createFileBlobStore('Docker-store', '/home/appuser/app/sonatype-work/nexus3/blobs/Docker-store')"
+}
