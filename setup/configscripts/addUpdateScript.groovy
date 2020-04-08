@@ -46,7 +46,7 @@ if (!options) {
 def file = new File(options.f)
 assert file.exists()
 
-def host = options.h ?: 'http://localhost:8081'
+def host = options.h ?: 'http://#NX_LOCALHOSTNAME#:'#NX_INTPORT#'
 def resource = 'service'
 
 ScriptClient scripts = new ResteasyClientBuilder()

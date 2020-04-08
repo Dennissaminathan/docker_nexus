@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "starting prepare.sh script..."
 
+# TODO: Move this stuff completly to start.sh with a firststart-section. Have a look to keycloak as example
 
 echo "intializing index value"
 index=0
