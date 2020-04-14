@@ -23,8 +23,6 @@ ADD setup/prepare.sh /home/appuser/app/prepare.sh
 ADD setup/start.sh /home/appuser/app/start.sh
 ADD setup/json/* /home/appuser/app/
 
-RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 --output /usr/local/bin/jq --progress-bar
-RUN chmod +x /usr/local/bin/jq > /dev/null 2>&1
 RUN curl -L http://download.sonatype.com/nexus/3/nexus-$NEXUS_VERSION-unix.tar.gz --progress-bar | tar zxf -
 RUN mv /nexus-$NEXUS_VERSION /home/appuser/app/
 
