@@ -3,9 +3,6 @@ FROM #MC_PROJECT#/jre8:latest
 LABEL MAINTAINER="Dennis Saminathan"
 
 ENV NEXUS_VERSION=3.14.0-04
-ARG NEXUS_USERNAME=admin
-ARG NEXUS_PASSWORD=admin123
-ARG HOST=http://localhost
 ARG PORT=8081
 ## required by both run time and build time
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
