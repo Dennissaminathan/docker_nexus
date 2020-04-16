@@ -2,7 +2,7 @@ FROM #MC_PROJECT#/jre8:latest
 
 LABEL MAINTAINER="Dennis Saminathan"
 
-ENV NEXUS_VERSION=3.14.0-04
+ENV NEXUS_VERSION=3.22.0-02
 ARG PORT=8081
 ## required by both run time and build time
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
