@@ -2,51 +2,31 @@ FROM #MC_PROJECT#/jre8:latest
 
 LABEL MAINTAINER="Dennis Saminathan"
 
-ARG NEXUS_VERSION=3.14.0-04
-# TODO: Change everything to compose file or set as ARG when just used during build-time
-ENV NEXUS_USERNAME=admin
-ENV NEXUS_PASSWORD=admin123
-ENV HOST=http://localhost
-ENV PORT=8081
-# TODO: Will be set within the jre8 image, but needed to tet
+ENV NEXUS_VERSION=3.22.0-02
+ARG PORT=8081
+## required by both run time and build time
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 
-# TODO: THat could be fine in the dockerfile becuase there is no reason to change it during runtime in compose file
-ENV GROOVY_HOME=/usr/local/groovy-2.5.7
-ENV PATH=$PATH:$GROOVY_HOME/bin
+ARG GROOVY_HOME=/usr/local/groovy-2.5.7
+ARG PATH=$PATH:$GROOVY_HOME/bin
 
-# Prerequisites fullfilled by #MC_PROJECT#/alpine
-# openssl, curl
 RUN apk update \
-	&& apk --no-cache add bash \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& rm -rf /var/cache/apk/*
+        && apk --no-cache add bash \
+        && rm -rf /var/lib/apt/lists/* \
+        && rm -rf /var/cache/apk/*
 
-# TODO: ADD everything to the home/appuser/app folder
-ADD setup/configscripts/* /tmp/
-ADD setup/prepare.sh /tmp/prepare.sh
+ADD setup/configscripts/* /home/appuser/app/
+ADD setup/prepare.sh /home/appuser/app/prepare.sh
 ADD setup/start.sh /home/appuser/app/start.sh
-ADD setup/json/* /tmp/
+ADD setup/json/* /home/appuser/app/
 
-#TODO: Is that really needed, jq is installed by alpine base image
-RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 --output /usr/local/bin/jq --progress-bar
-RUN chmod +x /usr/local/bin/jq > /dev/null 2>&1
 RUN curl -L http://download.sonatype.com/nexus/3/nexus-$NEXUS_VERSION-unix.tar.gz --progress-bar | tar zxf -
 RUN mv /nexus-$NEXUS_VERSION /home/appuser/app/
-# TODO: Delete nexus tar.gz (look at keycloak)
 
-#RUN curl -L https://bintray.com/artifact/download/groovy/maven/apache-groovy-binary-2.5.7.zip -o /tmp/groovy.zip && \
-#cd /usr/local && unzip /tmp/groovy.zip &&  ln -s /usr/local/groovy-2.5.7 groovy
-#RUN /usr/local/groovy/bin/groovy -v
 
-RUN chmod +x /tmp/prepare.sh && chmod +x /home/appuser/app/start.sh
-RUN /tmp/prepare.sh
+RUN chmod +x /home/appuser/app/start.sh
 RUN chown -R appuser:appuser /home/appuser/data /home/appuser/app
 
 USER appuser
-
-#TODO: Remove Expose, is part of docker-compose
-#TODO: Refine port in nexus to custom port
-EXPOSE ${PORT}
 
 CMD ["/home/appuser/app/start.sh"]
