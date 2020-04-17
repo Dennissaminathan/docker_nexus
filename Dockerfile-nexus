@@ -16,7 +16,6 @@ RUN apk update \
         && rm -rf /var/cache/apk/*
 
 ADD setup/configscripts/* /home/appuser/app/
-ADD setup/prepare.sh /home/appuser/app/prepare.sh
 ADD setup/start.sh /home/appuser/app/start.sh
 ADD setup/json/* /home/appuser/app/
 
