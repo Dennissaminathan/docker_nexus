@@ -50,7 +50,7 @@ openssl pkcs12 -export -in /home/appuser/data/certificates/cer.pem -inkey /home/
 
 keytool -importkeystore -noprompt -deststorepass ${NX_CERTPWD} -destkeypass ${NX_CERTPWD} -destkeystore /home/appuser/data/certificates/keystore.jks -srckeystore /home/appuser/data/certificates/jetty.key -srcstoretype PKCS12 -srcstorepass ${NX_CERTPWD}
 
-cp /home/appuser/data/certificates/keystore.jks /home/appuser/app/nexus-3.14.0-04/etc/ssl/
+cp /home/appuser/data/certificates/keystore.jks /home/appuser/app/nexus-$NEXUS_VERSION/etc/ssl/
 
 fi 
 echo "Starting nexus"
