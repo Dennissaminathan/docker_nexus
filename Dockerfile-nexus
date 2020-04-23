@@ -19,7 +19,7 @@ ADD setup/configscripts/* /home/appuser/app/
 ADD setup/start.sh /home/appuser/app/start.sh
 ADD setup/json/* /home/appuser/app/
 
-RUN curl -L http://download.sonatype.com/nexus/3/nexus-$NEXUS_VERSION-unix.tar.gz --progress-bar | tar zxf -
+RUN curl -L https://download.sonatype.com/nexus/3/nexus-$NEXUS_VERSION-unix.tar.gz --progress-bar | tar zxf -
 RUN mv /nexus-$NEXUS_VERSION /home/appuser/app/
 
 
