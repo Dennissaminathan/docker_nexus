@@ -50,8 +50,9 @@ then
 
     keytool -importkeystore -noprompt -deststorepass ${NX_CERTPWD} -destkeypass ${NX_CERTPWD} -destkeystore /home/appuser/data/certificates/nexus_keystore.jks -srckeystore /home/appuser/data/certificates/nexus.key -srcstoretype PKCS12 -srcstorepass ${NX_CERTPWD}
 
-    cp /home/appuser/data/certificates/nexus_keystore.jks /home/appuser/app/nexus-$NEXUS_VERSION/etc/ssl/keystore.jks
-
+    ln -s /home/appuser/data/certificates/nexus_keystore.jks  /home/appuser/app/nexus-$NEXUS_VERSION/etc/ssl/keystore.jks
+     sleep 10 
+     echo `date +%Y-%m-%d_%H:%M:%S_%z` > /home/appuser/data/firststart_finished.flg
 fi 
 echo "Starting nexus"
 /home/appuser/app/nexus-$NEXUS_VERSION/bin/nexus run
